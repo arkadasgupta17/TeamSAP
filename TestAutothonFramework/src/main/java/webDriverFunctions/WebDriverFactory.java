@@ -34,7 +34,7 @@ public class WebDriverFactory {
 	}
 	
 	public void webElementClickByCssSelector(String css) {
-		driver.findElement(By.xpath(css)).click();
+		driver.findElement(By.cssSelector(css)).click();
 	}
 	
 	
