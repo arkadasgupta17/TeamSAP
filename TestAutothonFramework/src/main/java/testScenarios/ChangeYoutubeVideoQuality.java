@@ -47,6 +47,7 @@ public class ChangeYoutubeVideoQuality {
         
         Thread.sleep(7000);
         
+        
         settingsButton.click();
         
 
