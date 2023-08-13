@@ -1,15 +1,18 @@
 package businessComponents;
 
+import org.openqa.selenium.WebDriver;
+
 import pageObjectRepository.YoutubeVideoPage;
 import webDriverFunctions.WebDriverFactory;
 
 public class FunctionalComponents extends WebDriverFactory{
 	
 	WebDriverFactory wf = new WebDriverFactory();
+	WebDriver driver ;
 	
 	public void launchApplication(String url) throws InterruptedException {
 		
-		wf.browserSetup();
+		driver = wf.browserSetup();
 		driver.get(url);
 		System.out.println(driver.getTitle());
 		
