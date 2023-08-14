@@ -42,25 +42,6 @@ public class FunctionalComponentsMobile extends AppiumTestDriverFactory{
 		
 	}
 	
-//	public void gotoYoutubeVideoSettings() {
-//		
-//		wf.waitforElementToBeClickableByCSSSelector(YoutubeVideoPage.settings);
-//		wf.webElementClickByCssSelector(YoutubeVideoPage.settings);
-//		System.out.println(driver.getTitle());
-//		
-//	}
-//	
-//	
-//	public void changeVideoQuality(String quality) {
-//		
-//		wf.waitforElementToBeClickableByCSSSelector(YoutubeVideoPage.quality);
-//		wf.webElementClickByCssSelector(YoutubeVideoPage.quality);
-//		
-//		wf.waitforElementToBeClickableByXpath(YoutubeVideoPage.qualityid);
-//		wf.webElementClickByXPath(YoutubeVideoPage.qualityid);
-//						
-//	}
-	
 	
 
 }

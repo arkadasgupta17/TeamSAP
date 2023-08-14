@@ -11,12 +11,15 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
 public class WebDriverFactory {
 	
 	
 
 	public WebDriver driver;
-	
+
 	
 	public WebDriver browserSetup() {
 		driver = new ChromeDriver();
@@ -61,6 +64,11 @@ public class WebDriverFactory {
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(60000));
 		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(css)));
 	}
+	
+	public void closeBrowser() {
+		driver.close();
+	}
+	
 	
 	
 	
