@@ -15,14 +15,14 @@ public class WebDriverFactory {
 	
 	
 
-	public static WebDriver driver;
+	public WebDriver driver;
 	
 	
-	public void browserSetup() {
+	public WebDriver browserSetup() {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
+		return driver;
 	}
-	
 	
 	
 	public void webElementClickByXPath(String xpath) {
