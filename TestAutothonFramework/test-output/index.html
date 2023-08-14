@@ -129,16 +129,15 @@
                   <a name="TC01_Youtube_Video_Quality_Change">
                   </a> <!-- TC01_Youtube_Video_Quality_Change -->
                   <span class="method-name">TC01_Youtube_Video_Quality_Change</span>
-                  <div class="stack-trace">org.openqa.selenium.InvalidSelectorException: invalid selector: Unable to locate an element with the xpath expression .ytp-settings-button because of the following error:
-SyntaxError: Failed to execute &apos;evaluate&apos; on &apos;Document&apos;: The string &apos;.ytp-settings-button&apos; is not a valid XPath expression.
+                  <div class="stack-trace">org.openqa.selenium.WebDriverException: unknown error: cannot determine loading status
+from no such window
   (Session info: chrome=115.0.5790.170)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
 Build info: version: &apos;4.10.0&apos;, revision: &apos;c14d967899&apos;
 System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;13.5&apos;, java.version: &apos;17.0.6&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [cbd5e03f5dd8b5f9f451fb604ce71d60, findElement {using=xpath, value=.ytp-settings-button}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 115.0.5790.170, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: /var/folders/kr/kq721mzd5ml...}, goog:chromeOptions: {debuggerAddress: localhost:63755}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:63755/devtoo..., se:cdpVersion: 115.0.5790.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: cbd5e03f5dd8b5f9f451fb604ce71d60
+Command: [a50609974e93948e40cdc62e27e6915e, get {url=https://www.youtube.com/watch?v=cSED556_KCg&amp;t=14s}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 115.0.5790.170, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: /var/folders/kr/kq721mzd5ml...}, goog:chromeOptions: {debuggerAddress: localhost:65518}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:65518/devtoo..., se:cdpVersion: 115.0.5790.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a50609974e93948e40cdc62e27e6915e
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:199)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:132)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:51)
@@ -146,13 +145,9 @@ Session ID: cbd5e03f5dd8b5f9f451fb604ce71d60
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:531)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
-	at webDriverFunctions.WebDriverFactory.webElementClickByCssSelector(WebDriverFactory.java:37)
-	at businessComponents.FunctionalComponents.gotoYoutubeVideoSettings(FunctionalComponents.java:22)
-	at testScenarios.TestCase_YoutubeDemo.TC01_Youtube_Video_Quality_Change(TestCase_YoutubeDemo.java:14)
+	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:295)
+	at businessComponents.FunctionalComponents.launchApplication(FunctionalComponents.java:13)
+	at testScenarios.TestCase_YoutubeDemo.TC01_Youtube_Video_Quality_Change(TestCase_YoutubeDemo.java:13)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 ... Removed 32 stack frames
 </div> <!-- stack-trace -->
@@ -216,12 +211,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'TC01_Youtube_Video_Quality_Change')
 data.setCell(0, 2, 'testScenarios.TestCase_YoutubeDemo')
-data.setCell(0, 3, 30620);
+data.setCell(0, 3, 20184);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 30 seconds</span>
+              <span class="suite-total-time">Total running time: 20 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->

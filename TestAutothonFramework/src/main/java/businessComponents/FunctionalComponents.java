@@ -11,7 +11,6 @@ public class FunctionalComponents extends WebDriverFactory{
 		
 		wf.browserSetup();
 		driver.get(url);
-		System.out.println(driver.getTitle());
 		
 	}
 	
