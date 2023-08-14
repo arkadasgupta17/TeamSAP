@@ -4,7 +4,7 @@ pipeline {
         stage('Cloning Repository') {
             steps {
                 script {
-                       echo "Skipping as of now"
+                       checkout scm 
                 }
             }
         }
