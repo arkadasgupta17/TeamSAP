@@ -44,25 +44,25 @@ public class WebDriverFactory {
 	
 	public void waitforElementToBeVisibleByXpath(String xpath) {
 		
-		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(60000));
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(60));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
 	}
 	
 	public void waitforElementToBeVisibleByCSSSelector(String css) {
 		
-		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(60000));
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(60));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(css)));
 	}
 	
 	public void waitforElementToBeClickableByXpath(String xpath) {
 		
-		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(60000));
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(60));
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
 	}
 	
 	public void waitforElementToBeClickableByCSSSelector(String css) {
 		
-		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(60000));
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(60));
 		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(css)));
 	}
 	

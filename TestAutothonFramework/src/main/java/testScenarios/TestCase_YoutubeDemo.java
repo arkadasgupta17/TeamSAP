@@ -32,15 +32,14 @@ public class TestCase_YoutubeDemo extends FunctionalComponents {
 
 		ExtentTest test = extent.createTest("Youtube Video Quality Change");
 		try {
-			fc.launchApplication("https://www.youtube.com");
+			fc.launchApplication("https://www.youtube.com/watch?v=_pG4QLtuRYw");
 			fc.gotoYoutubeVideoSettings();
 			fc.changeVideoQuality("144p");
 			test.log(Status.PASS, "Quality Change Successful.");
 		} catch (Exception e) {
 
-			test.log(Status.FAIL, e.toString());
-
-			System.out.println(e.toString());
+			test.log(Status.FAIL, "The Test Case is failed. ");
+			test.log(Status.FAIL, "The Failure Reason: "+e.toString());
 		}
 
 	}
