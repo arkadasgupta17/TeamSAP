@@ -23,6 +23,7 @@ public class YoutubeTests {
 	
 	@Test
 	public void wikipediaContentReadTest() {
+		
 		// open google
 		String googleRes = RestAssured.given()
 				.and().filter(new RequestLoggingFilter())
