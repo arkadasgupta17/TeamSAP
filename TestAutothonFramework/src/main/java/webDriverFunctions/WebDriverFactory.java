@@ -28,6 +28,7 @@ public class WebDriverFactory {
 	}
 	
 	
+	
 	public void webElementClickByXPath(String xpath) {
 		driver.findElement(By.xpath(xpath)).click();
 	}
