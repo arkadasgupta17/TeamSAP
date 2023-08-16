@@ -61,9 +61,16 @@ public class TestCase_YoutubeDemo {
 		ExtentTest test = extent.createTest("Mobile IOS Testing");
 		try {
 			fcM.launchApplication("https://www.youtube.com/watch?v=cSED556_KCg&t=14s", "ios");
+			test.log(Status.PASS, "Application Launched");
+			
 			fcM.gotoYoutubeVideoSettings();
+			test.log(Status.PASS, "Clicking on Youtube Settings is successful");
+			
 			fcM.changeVideoQuality("144p");
-			test.log(Status.PASS, "Quality Change Successful.");
+			test.log(Status.PASS, "Quality Change successful");
+			
+			String quality = fc.validateCurrentVideoQuality();
+			test.log(Status.PASS, "Quality Change Successful. Current Video Quality is: " + quality);
 		} catch (Exception e) {
 
 			test.log(Status.FAIL, "The Test Case is failed. ");
@@ -75,7 +82,23 @@ public class TestCase_YoutubeDemo {
 	@Test(priority = 3)
 	public void TC01_Youtube_Video_Mobile_Android() throws InterruptedException {
 		ExtentTest test = extent.createTest("Mobile Android Testing");
-		fcM.launchApplication("https://www.youtube.com/watch?v=cSED556_KCg&t=14s", "Android");
+		try {
+			fcM.launchApplication("https://www.youtube.com/watch?v=cSED556_KCg&t=14s", "Android");
+			test.log(Status.PASS, "Application Launched");
+			
+			fcM.gotoYoutubeVideoSettings();
+			test.log(Status.PASS, "Clicking on Youtube Settings is successful");
+			
+			fcM.changeVideoQuality("144p");
+			test.log(Status.PASS, "Quality Change successful");
+			
+			String quality = fc.validateCurrentVideoQuality();
+			test.log(Status.PASS, "Quality Change Successful. Current Video Quality is: " + quality);
+		} catch (Exception e) {
+
+			test.log(Status.FAIL, "The Test Case is failed. ");
+			test.log(Status.FAIL, "The Failure Reason: " + e.getMessage());
+		}
 	}
 	
 	

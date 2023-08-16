@@ -27,7 +27,7 @@ public class FunctionalComponentsMobile extends AppiumTestDriverFactory {
 			// To Do for Android
 			capabilities.put("platformName", "Android");
 			capabilities.put("platformVersion", "14");
-			capabilities.put("browserName", "chromium");
+			capabilities.put("browserName", "Chrome");
 			capabilities.put("automationName", "UiAutomator2");
 			capabilities.put("deviceName", "emulator-5554");
 
@@ -55,6 +55,15 @@ public class FunctionalComponentsMobile extends AppiumTestDriverFactory {
 
 		wf.waitforElementToBeClickableByXpath(YoutubeVideoPage.qualityid);
 		wf.webElementClickByXPath(YoutubeVideoPage.qualityid);
+
+	}
+	
+	public String validateCurrentVideoQuality() {
+
+		wf.waitforElementToBeClickableByCSSSelector(YoutubeVideoPage.settings);
+		wf.webElementClickByCssSelector(YoutubeVideoPage.settings);
+		wf.waitforElementToBeClickableByXpath(YoutubeVideoPage.quality);
+		return wf.getTextFromElement(YoutubeVideoPage.quality);
 
 	}
 
