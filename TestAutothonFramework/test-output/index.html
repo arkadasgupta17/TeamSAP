@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods, 1 failed,   2 passed</span>
+                    <span class="method-stats">4 methods, 1 failed,   3 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -103,7 +103,7 @@
                     <div class="method-list-content failed suite-Suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="testScenarios.TestCase_YoutubeDemo" class="method navigator-link" hash-for-method="TC01_Youtube_Video_Mobile_Android">TC01_Youtube_Video_Mobile_Android</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="testScenarios.MobileTestCases" class="method navigator-link" hash-for-method="TC01_Youtube_Video_Mobile_Android">TC01_Youtube_Video_Mobile_Android</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Suite -->
@@ -117,12 +117,17 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="testScenarios.TestCase_YoutubeDemo" class="method navigator-link" hash-for-method="TC01_Youtube_Video_Mobile_IOS">TC01_Youtube_Video_Mobile_IOS</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="testScenarios.MobileTestCases" class="method navigator-link" hash-for-method="TC01_Youtube_Video_Mobile_IOS">TC01_Youtube_Video_Mobile_IOS</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="testScenarios.TestCase_YoutubeDemo" class="method navigator-link" hash-for-method="TC01_Youtube_Video_Quality_Change">TC01_Youtube_Video_Quality_Change</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="testScenarios.MobileTestCases" class="method navigator-link" hash-for-method="TC01_Youtube_Video_Quality_Change">TC01_Youtube_Video_Quality_Change</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="testScenarios.WebTestCases" class="method navigator-link" hash-for-method="TC01_Youtube_Video_Quality_Change">TC01_Youtube_Video_Quality_Change</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -140,7 +145,7 @@
           <div class="suite-Suite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">testScenarios.TestCase_YoutubeDemo</span>
+              <span class="class-name">testScenarios.MobileTestCases</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
@@ -149,8 +154,8 @@
                   </a> <!-- TC01_Youtube_Video_Mobile_Android -->
                   <span class="method-name">TC01_Youtube_Video_Mobile_Android</span>
                   <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;io.appium.java_client.AppiumDriver.navigate()&quot; because &quot;this.driver&quot; is null
-	at businessComponents.FunctionalComponentsMobile.launchApplication(FunctionalComponentsMobile.java:38)
-	at testScenarios.TestCase_YoutubeDemo.TC01_Youtube_Video_Mobile_Android(TestCase_YoutubeDemo.java:64)
+	at businessComponents.FunctionalComponentsMobile.launchApplication(FunctionalComponentsMobile.java:40)
+	at testScenarios.MobileTestCases.TC01_Youtube_Video_Mobile_Android(MobileTestCases.java:68)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 ... Removed 27 stack frames
 </div> <!-- stack-trace -->
@@ -161,7 +166,7 @@
           <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">testScenarios.TestCase_YoutubeDemo</span>
+              <span class="class-name">testScenarios.MobileTestCases</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
@@ -171,6 +176,21 @@
                   <span class="method-name">TC01_Youtube_Video_Mobile_IOS</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC01_Youtube_Video_Quality_Change">
+                  </a> <!-- TC01_Youtube_Video_Quality_Change -->
+                  <span class="method-name">TC01_Youtube_Video_Quality_Change</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-passed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">testScenarios.WebTestCases</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
                   <a name="TC01_Youtube_Video_Quality_Change">
@@ -192,7 +212,9 @@
 &lt;suite name=&quot;Suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;4&quot; name=&quot;Test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;testScenarios.TestCase_YoutubeDemo&quot;/&gt;
+      &lt;class name=&quot;testScenarios.WebTestCases&quot;/&gt;
+      &lt;class name=&quot;testScenarios.MobileTestCases&quot;/&gt;
+      &lt;class name=&quot;testScenarios.APITestCases&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Test --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
@@ -206,7 +228,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Test (1 class)</span>
+                <span class="test-name">Test (3 classes)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -232,19 +254,23 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(3);
+data.addRows(4);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'TC01_Youtube_Video_Quality_Change')
-data.setCell(0, 2, 'testScenarios.TestCase_YoutubeDemo')
-data.setCell(0, 3, 114051);
+data.setCell(0, 2, 'testScenarios.WebTestCases')
+data.setCell(0, 3, 64141);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'TC01_Youtube_Video_Mobile_Android')
-data.setCell(1, 2, 'testScenarios.TestCase_YoutubeDemo')
-data.setCell(1, 3, 776);
+data.setCell(1, 1, 'TC01_Youtube_Video_Quality_Change')
+data.setCell(1, 2, 'testScenarios.MobileTestCases')
+data.setCell(1, 3, 17994);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'TC01_Youtube_Video_Mobile_IOS')
-data.setCell(2, 2, 'testScenarios.TestCase_YoutubeDemo')
-data.setCell(2, 3, 24);
+data.setCell(2, 1, 'TC01_Youtube_Video_Mobile_Android')
+data.setCell(2, 2, 'testScenarios.MobileTestCases')
+data.setCell(2, 3, 88);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'TC01_Youtube_Video_Mobile_IOS')
+data.setCell(3, 2, 'testScenarios.MobileTestCases')
+data.setCell(3, 3, 23);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
@@ -275,28 +301,49 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">testScenarios.TestCase_YoutubeDemo</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">testScenarios.MobileTestCases</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
                 <span class="method-name">reportConfiguration</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-test before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">testScenarios.WebTestCases</div> <!-- chronological-class-name -->
+              <div class="configuration-test before">
+                <span class="method-name">reportConfiguration</span>
+                <span class="method-start">170 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="test-method">
+                <span class="method-name">TC01_Youtube_Video_Quality_Change</span>
+                <span class="method-start">188 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">testScenarios.MobileTestCases</div> <!-- chronological-class-name -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">TC01_Youtube_Video_Mobile_Android</span>
-                <span class="method-start">154 ms</span>
+                <span class="method-start">64344 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">TC01_Youtube_Video_Mobile_IOS</span>
-                <span class="method-start">941 ms</span>
+                <span class="method-start">64446 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">TC01_Youtube_Video_Quality_Change</span>
-                <span class="method-start">967 ms</span>
+                <span class="method-start">64473 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-test after">
                 <span class="method-name">closeTest</span>
-                <span class="method-start">115033 ms</span>
+                <span class="method-start">82470 ms</span>
+              </div> <!-- configuration-test after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">testScenarios.WebTestCases</div> <!-- chronological-class-name -->
+              <div class="configuration-test after">
+                <span class="method-name">closeTest</span>
+                <span class="method-start">83189 ms</span>
               </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

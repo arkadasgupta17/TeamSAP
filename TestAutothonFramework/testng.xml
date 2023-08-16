@@ -3,9 +3,8 @@
 <suite name="Suite">
   <test thread-count="4" name="Test">
 	  <classes>
-      <class name="testScenarios.WebTestCases"/>
-       <class name="testScenarios.MobileTestCases"/>
-       <class name="testScenarios.APITestCases"/>
+      <class name="testScenarios.TestCase_YoutubeDemo"/>
+
       </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

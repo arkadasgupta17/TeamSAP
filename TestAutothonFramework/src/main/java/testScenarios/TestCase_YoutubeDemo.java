@@ -12,7 +12,7 @@ import com.aventstack.extentreports.reporter.*;
 import businessComponents.FunctionalComponents;
 import businessComponents.FunctionalComponentsMobile;
 
-public class TestCase_YoutubeDemo extends FunctionalComponents {
+public class TestCase_YoutubeDemo {
 
 	FunctionalComponents fc = new FunctionalComponents();
 	FunctionalComponentsMobile fcM = new FunctionalComponentsMobile();
@@ -27,7 +27,7 @@ public class TestCase_YoutubeDemo extends FunctionalComponents {
 
 	}
 
-	@Test
+	@Test(priority=1)
 	public void TC01_Youtube_Video_Quality_Change() throws InterruptedException {
 
 		ExtentTest test = extent.createTest("Youtube Video Quality Change");
@@ -39,13 +39,14 @@ public class TestCase_YoutubeDemo extends FunctionalComponents {
 		} catch (Exception e) {
 
 			test.log(Status.FAIL, "The Test Case is failed. ");
-			test.log(Status.FAIL, "The Failure Reason: "+e.toString());
+			test.log(Status.FAIL, "The Failure Reason: "+e.getMessage());
 		}
 
 	}
 
-	@Test
+	@Test(priority=2)
 	public void TC01_Youtube_Video_Mobile_IOS() throws InterruptedException {
+		
 		ExtentTest test = extent.createTest("Mobile IOS Testing");
 		try {
 			fcM.launchApplication("https://www.youtube.com/watch?v=cSED556_KCg&t=14s", "ios");
@@ -54,14 +55,13 @@ public class TestCase_YoutubeDemo extends FunctionalComponents {
 			test.log(Status.PASS, "Quality Change Successful.");
 		} catch (Exception e) {
 
-			test.log(Status.FAIL, e.toString());
-
-			System.out.println(e.toString());
+			test.log(Status.FAIL, "The Test Case is failed. ");
+			test.log(Status.FAIL, "The Failure Reason: "+e.getMessage());
 		}
 
 	}
 
-	@Test
+	@Test(priority=3)
 	public void TC01_Youtube_Video_Mobile_Android() throws InterruptedException {
 		fcM.launchApplication("https://www.youtube.com/watch?v=cSED556_KCg&t=14s", "Android");
 	}

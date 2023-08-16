@@ -3,13 +3,13 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="testScenarios.TestCase_YoutubeDemo">
+      <class name="testScenarios.MobileTestCases">
         <methods>
-          <include name="closeTest"/>
-          <include name="reportConfiguration"/>
           <include name="TC01_Youtube_Video_Mobile_Android"/>
+          <include name="reportConfiguration"/>
+          <include name="closeTest"/>
         </methods>
-      </class> <!-- testScenarios.TestCase_YoutubeDemo -->
+      </class> <!-- testScenarios.MobileTestCases -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
