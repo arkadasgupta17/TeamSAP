@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary"></span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Aug 14, 2023 05:44:23 pm</span></a>
+<a href="#"><span class="badge badge-primary">Aug 15, 2023 05:10:49 pm</span></a>
 </li>
 </ul>
 </div>
@@ -79,9 +79,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">Youtube Video Quality Change</p>
+            <p class="name">Mobile IOS Testing</p>
             <p class="text-sm">
-              <span>5:44:23 pm</span> / <span>00:01:54:531</span>
+              <span>5:10:50 pm</span> / <span>00:00:00:019</span>
               <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
@@ -89,10 +89,10 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-fail">Youtube Video Quality Change</h5>
-<span class='badge badge-success'>08.14.2023 5:44:23 pm</span>
-<span class='badge badge-danger'>08.14.2023 5:46:18 pm</span>
-<span class='badge badge-default'>00:01:54:531</span>
+<h5 class="test-status text-fail">Mobile IOS Testing</h5>
+<span class='badge badge-success'>08.15.2023 5:10:50 pm</span>
+<span class='badge badge-danger'>08.15.2023 5:10:50 pm</span>
+<span class='badge badge-default'>00:00:00:019</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
@@ -104,14 +104,61 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log fail-bg">Fail</span></td>
-        <td>5:46:18 pm</td>
+        <td>5:10:50 pm</td>
         <td>
-          org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //span[text='144p']/parent::div/parent::div/parent::div (tried for 60 second(s) with 500 milliseconds interval)
-Build info: version: '4.8.2', revision: '826dbfc730'
+          java.lang.NullPointerException: Cannot invoke "io.appium.java_client.AppiumDriver.navigate()" because "this.driver" is null
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="2"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Youtube Video Quality Change</p>
+            <p class="text-sm">
+              <span>5:10:50 pm</span> / <span>00:01:54:049</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">Youtube Video Quality Change</h5>
+<span class='badge badge-success'>08.15.2023 5:10:50 pm</span>
+<span class='badge badge-danger'>08.15.2023 5:12:44 pm</span>
+<span class='badge badge-default'>00:01:54:049</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=2</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>5:12:44 pm</td>
+        <td>
+          The Test Case is failed. 
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>5:12:44 pm</td>
+        <td>
+          The Failure Reason: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //span[text='144p']/parent::div/parent::div/parent::div (tried for 60 second(s) with 500 milliseconds interval)
+Build info: version: '4.10.0', revision: 'c14d967899'
 System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.5', java.version: '17.0.6'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 115.0.5790.170, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: /var/folders/kr/kq721mzd5ml...}, goog:chromeOptions: {debuggerAddress: localhost:59222}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: MAC, proxy: Proxy(), se:cdp: ws://localhost:59222/devtoo..., se:cdpVersion: 115.0.5790.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 3c3894523783013ec77e7d28a063d99b
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 115.0.5790.170, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: /var/folders/kr/kq721mzd5ml...}, goog:chromeOptions: {debuggerAddress: localhost:51928}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:51928/devtoo..., se:cdpVersion: 115.0.5790.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: d6a5915e83961c9106328981485d94a5
         </td>
       </tr>
   </tbody>
@@ -133,13 +180,13 @@ Session ID: 3c3894523783013ec77e7d28a063d99b
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Aug 14, 2023 05:44:23 pm</h3>
+<h3>Aug 15, 2023 05:10:49 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Aug 14, 2023 05:46:22 pm</h3>
+<h3>Aug 15, 2023 05:12:45 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -151,7 +198,7 @@ Session ID: 3c3894523783013ec77e7d28a063d99b
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-fail">Tests Failed</p>
-<h3>1</h3>
+<h3>2</h3>
 </div></div>
 </div>
 </div>
@@ -172,7 +219,7 @@ Session ID: 3c3894523783013ec77e7d28a063d99b
 </small>
 </div>
 <div>
-<small data-tooltip='100%'><b>1</b> tests failed,
+<small data-tooltip='100%'><b>2</b> tests failed,
 <b>0</b> skipped, <b data-tooltip='0%'>0</b> others
 </small>
 </div>
@@ -192,7 +239,7 @@ Session ID: 3c3894523783013ec77e7d28a063d99b
 <div class="card-footer">
 <div><small data-tooltip='0%'><b>0</b> events passed</small></div>
 <div>
-<small data-tooltip='100%'><b>1</b> events failed,
+<small data-tooltip='100%'><b>3</b> events failed,
 <b data-tooltip='%'>0</b> others
 </small>
 </div>
@@ -209,7 +256,7 @@ Session ID: 3c3894523783013ec77e7d28a063d99b
 </div></div>
 <script>
 var timeline = {
-"Youtube Video Quality Change":114.531
+"Mobile IOS Testing":0.019,"Youtube Video Quality Change":114.049
 };
 </script>
 <div class="row">
@@ -219,7 +266,7 @@ var timeline = {
 var statusGroup = {
 parentCount: 5,
 passParent: 0,
-failParent: 1,
+failParent: 2,
 warningParent: 0,
 skipParent: 0,
 childCount: 5,
@@ -236,7 +283,7 @@ skipGrandChild: 0,
 infoGrandChild: 0,
 eventsCount: 5,
 passEvents: 0,
-failEvents: 1,
+failEvents: 3,
 warningEvents: 0,
 skipEvents: 0,
 infoEvents: 0
