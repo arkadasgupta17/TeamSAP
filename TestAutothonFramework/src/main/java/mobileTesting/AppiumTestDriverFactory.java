@@ -25,6 +25,9 @@ public class AppiumTestDriverFactory {
          caps.setCapability("platformVersion", capabilities.getString("platformVersion"));
          caps.setCapability("automationName", capabilities.getString("automationName"));
          caps.setCapability("browserName", capabilities.getString("browserName"));
+         caps.setCapability("deviceName", capabilities.getString("deviceName"));
+         caps.setCapability("orientation", "LANDSCAPE");
+         
          URL url;
 		try {
 			url = new URL("http://127.0.0.1:4723/wd/hub");
@@ -92,5 +95,8 @@ public class AppiumTestDriverFactory {
 		
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(30000));
 		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(css)));
+	}
+	public void closeBrowser() {
+		driver.close();
 	}
 }

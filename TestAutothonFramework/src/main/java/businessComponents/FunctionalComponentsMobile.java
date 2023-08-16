@@ -22,7 +22,9 @@ public class FunctionalComponentsMobile extends AppiumTestDriverFactory{
 			capabilities.put("platformName", "ios");
 			capabilities.put("platformVersion", "16.4");
 			capabilities.put("browserName", "Safari");
+			capabilities.put("deviceName", "iPad Air (5th generation)");
 			capabilities.put("automationName", "XCUITest");
+			
 			driver = wf.browserSetupIOS(capabilities);
 		}else {
 			//To Do for Android
@@ -40,6 +42,28 @@ public class FunctionalComponentsMobile extends AppiumTestDriverFactory{
         
 		System.out.println(driver.getCurrentUrl());
 		
+	}
+	
+	public void gotoYoutubeVideoSettings() {
+		
+		wf.waitforElementToBeClickableByCSSSelector(YoutubeVideoPage.settings);
+		wf.webElementClickByCssSelector(YoutubeVideoPage.settings);
+		System.out.println(driver.getTitle());
+		
+	}
+	
+	
+	public void changeVideoQuality(String quality) {
+		
+		wf.waitforElementToBeClickableByXpath(YoutubeVideoPage.quality);
+		wf.webElementClickByXPath(YoutubeVideoPage.quality);
+		
+		wf.waitforElementToBeClickableByXpath(YoutubeVideoPage.qualityid);
+		wf.webElementClickByXPath(YoutubeVideoPage.qualityid);
+						
+	}
+	public void closeBrowser() {
+		wf.closeBrowser();
 	}
 	
 	

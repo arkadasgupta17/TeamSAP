@@ -49,7 +49,9 @@ public class TestCase_YoutubeDemo extends FunctionalComponents {
 		ExtentTest test = extent.createTest("Mobile IOS Testing");
 		try {
 			fcM.launchApplication("https://www.youtube.com/watch?v=cSED556_KCg&t=14s", "ios");
-
+			fcM.gotoYoutubeVideoSettings();
+			fcM.changeVideoQuality("144p");
+			test.log(Status.PASS, "Quality Change Successful.");
 		} catch (Exception e) {
 
 			test.log(Status.FAIL, e.toString());
@@ -68,7 +70,14 @@ public class TestCase_YoutubeDemo extends FunctionalComponents {
 	
 	@AfterTest
 	public void closeTest() {
-		fc.closeBrowser();
+		try {
+			fc.closeBrowser();
+		}catch (Exception e) {
+		}
+		try {
+			fcM.closeBrowser();
+		}catch (Exception e) {
+		}
 		extent.flush();
 
 	}
