@@ -5,7 +5,9 @@
     <classes>
       <class name="testScenarios.TestCase_YoutubeDemo">
         <methods>
-          <include name="TC01_Youtube_Video_Quality_Change"/>
+          <include name="closeTest"/>
+          <include name="reportConfiguration"/>
+          <include name="TC01_Youtube_Video_Mobile_Android"/>
         </methods>
       </class> <!-- testScenarios.TestCase_YoutubeDemo -->
     </classes>

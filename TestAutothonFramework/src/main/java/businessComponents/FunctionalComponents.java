@@ -38,8 +38,8 @@ public class FunctionalComponents extends WebDriverFactory{
 	
 	public void changeVideoQuality(String quality) {
 		
-		wf.waitforElementToBeClickableByCSSSelector(YoutubeVideoPage.quality);
-		wf.webElementClickByCssSelector(YoutubeVideoPage.quality);
+		wf.waitforElementToBeClickableByXpath(YoutubeVideoPage.quality);
+		wf.webElementClickByXPath(YoutubeVideoPage.quality);
 		
 		wf.waitforElementToBeClickableByXpath(YoutubeVideoPage.qualityid);
 		wf.webElementClickByXPath(YoutubeVideoPage.qualityid);
