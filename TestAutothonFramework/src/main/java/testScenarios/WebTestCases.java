@@ -12,7 +12,7 @@ import com.aventstack.extentreports.reporter.*;
 import businessComponents.FunctionalComponents;
 import businessComponents.FunctionalComponentsMobile;
 
-public class TestCase_YoutubeDemo extends FunctionalComponents {
+public class WebTestCases extends FunctionalComponents {
 
 	FunctionalComponents fc = new FunctionalComponents();
 	FunctionalComponentsMobile fcM = new FunctionalComponentsMobile();

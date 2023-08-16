@@ -16,8 +16,7 @@ public class FunctionalComponents extends WebDriverFactory{
 	WebDriverFactory wf = new WebDriverFactory();
 	WebDriver driver ;
 	
-	public void launchApplication(String url) throws InterruptedException {
-		
+	public void launchApplication(String url) throws InterruptedException {		
 
 			driver = wf.browserSetup();
 			driver.get(url);
