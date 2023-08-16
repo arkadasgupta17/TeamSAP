@@ -63,7 +63,23 @@ public class WebDriverFactory {
 	public void closeBrowser() {
 		driver.close();
 	}
+	
+	
+	public void closeAllBrowserEvents() {
+		driver.quit();
+	}
 
+	
+	public String getTextFromElement(String xpath) {
+		return driver.findElement(By.xpath(xpath)).getText();
+	}
+	
+	
+	public String getAttributeFromElement(String xpath, String attribute) {
+		return driver.findElement(By.xpath(xpath)).getAttribute(attribute);
+	}
+	
+	
 	public void selectDropdownByValue(String xpath, String value) {
 
 		Select s = new Select((driver.findElement(By.xpath(xpath))));
