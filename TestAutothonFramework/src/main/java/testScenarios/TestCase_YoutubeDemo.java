@@ -11,12 +11,14 @@ import com.aventstack.extentreports.reporter.*;
 
 import businessComponents.FunctionalComponents;
 import businessComponents.FunctionalComponentsMobile;
+import businessComponents.FunctionalComponentAPI;
 
 public class TestCase_YoutubeDemo {
 	
 
 	FunctionalComponents fc = new FunctionalComponents();
 	FunctionalComponentsMobile fcM = new FunctionalComponentsMobile();
+	FunctionalComponentAPI fca = new FunctionalComponentAPI();
 
 	ExtentReports extent = new ExtentReports();
 	ExtentSparkReporter spark = new ExtentSparkReporter(
@@ -44,11 +46,11 @@ public class TestCase_YoutubeDemo {
 			
 			String quality = fc.validateCurrentVideoQuality();
 			test.log(Status.PASS, "Quality Change Successful. Current Video Quality is: " + quality);
+			
 		} catch (Exception e) {
 
 			test.log(Status.FAIL, "The Test Case is failed. ");
 			test.log(Status.FAIL, "The Failure Reason: " + e.getMessage());
-			System.out.println(e.getMessage());
 		}
 
 	}
@@ -75,17 +77,33 @@ public class TestCase_YoutubeDemo {
 		ExtentTest test = extent.createTest("Mobile Android Testing");
 		fcM.launchApplication("https://www.youtube.com/watch?v=cSED556_KCg&t=14s", "Android");
 	}
+	
+	
+	@Test(priority = 4)
+	public void testAPI() {
+		ExtentTest test = extent.createTest("API Testing");
+		
+		try {
+			fca.getMethod("url");
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+	}
 
 	@AfterTest
 	public void closeTest() {
 		try {
 			fc.closeBrowser();
 		} catch (Exception e) {
+			
 		}
 		try {
 			fcM.closeBrowser();
 		} catch (Exception e) {
 		}
+		
 		extent.flush();
 
 	}
