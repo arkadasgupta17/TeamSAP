@@ -1,8 +1,11 @@
 package testScenarios;
 
+import static org.testng.Assert.assertEquals;
+
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import org.w3c.dom.Document;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -108,6 +111,33 @@ public class TestCase_YoutubeDemo {
 		
 		try {
 
+			// open google
+			String googleRes = fca.getStringResponseFromGetAPIandCheckStatusCode("https://www.google.com", 200);
+			Document docGoogle = fca.convertStringToXMLDocument(googleRes);
+			String titleGoogle = fca.getHtmlTitle(docGoogle);
+			test.log(Status.PASS, "Open Google");
+			
+			// search wikipedia in google
+			String searchRes = fca.getStringResponseFromGetAPIQueryParamsandCheckStatusCode("https://www.google.com/search", 200, 
+					"q", "youtube");
+			Document docSearch = fca.convertStringToXMLDocument(searchRes);
+			String titleSearch = fca.getHtmlTitle(docSearch);
+			String link = fca.getAnchorTagUrl(docSearch);
+			link = link.substring((link.indexOf("?q=") + 3), link.indexOf("/&"));
+			test.log(Status.PASS, "Search youtube in google");
+			
+			// open youtube
+			String youtubeRes = fca.getStringResponseFromGetAPIandCheckStatusCode("https://www.youtube.com/", 200);
+			Document docYoutube = fca.convertStringToXMLDocument(youtubeRes);
+			String titleYoutube = fca.getHtmlTitle(docYoutube);
+			test.log(Status.PASS, "Open youtube");
+			
+			// open youtube search
+			String youTubeSearch = fca.getStringResponseFromGetAPIQueryParamsandCheckStatusCode("https://www.youtube.com/results", 200,
+					"search_query", "selenium");
+			Document docYoutubeSearch = fca.convertStringToXMLDocument(youTubeSearch);
+			String titleYoutubeSearch = fca.getHtmlTitle(docYoutubeSearch);
+			test.log(Status.PASS, "search for selenium in youtube");
 			
 		} catch (Exception e) {
 			// TODO: handle exception
