@@ -107,7 +107,7 @@ public class TestCase_YoutubeDemo {
 		ExtentTest test = extent.createTest("API Testing");
 		
 		try {
-			fca.getMethod("url");
+
 			
 		} catch (Exception e) {
 			// TODO: handle exception

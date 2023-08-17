@@ -1,31 +1,14 @@
 package businessComponents;
 
-public class FunctionalComponentAPI {
-	
-	
-	
-	public void getMethod(String URI) {
-		
-		
-	}
-	
-	
-	public void postMethod() {
-		
-		
-	}
-	
-	
-	public void putMethod() {
-		
-		
-	}
-	
-	
-	public void deleteMethod() {
-		
-		
-	}
-	
+import java.util.Map;
 
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
+
+public class FunctionalComponentAPI {
+
+
+
+	
 }
