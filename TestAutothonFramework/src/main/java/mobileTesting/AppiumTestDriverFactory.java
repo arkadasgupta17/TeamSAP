@@ -19,6 +19,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 
 public class AppiumTestDriverFactory {
+
 	public AppiumDriver driver;
 
 	public AppiumDriver browserSetupIOS(JSONObject capabilities) {
@@ -47,12 +48,12 @@ public class AppiumTestDriverFactory {
 		caps.setCapability("platformName", capabilities.getString("platformName"));
 		caps.setCapability("platformVersion", capabilities.getString("platformVersion"));
 		caps.setCapability("automationName", capabilities.getString("automationName"));
-        caps.setCapability("browserName", capabilities.getString("browserName"));
+		caps.setCapability("browserName", capabilities.getString("browserName"));
 //		caps.setCapability("deviceName", capabilities.getString("deviceName"));
 //		caps.setCapability("appPackage", "com.android.chrome");
 		caps.setCapability("appActivity", "com.google.android.apps.chrome.Main");
-	    caps.setCapability("noReset", true);
-	    caps.setCapability("unicodekeyboard", true);
+		caps.setCapability("noReset", true);
+		caps.setCapability("unicodekeyboard", true);
 
 		URL url;
 		try {
@@ -103,30 +104,25 @@ public class AppiumTestDriverFactory {
 	public void closeBrowser() {
 		driver.close();
 	}
-	
-	
+
 	public void closeAllBrowserEvents() {
 		driver.quit();
 	}
 
-	
 	public String getTextFromElement(String xpath) {
 		return driver.findElement(By.xpath(xpath)).getText();
 	}
-	
-	
+
 	public String getAttributeFromElement(String xpath, String attribute) {
 		return driver.findElement(By.xpath(xpath)).getAttribute(attribute);
 	}
-	
-	
+
 	public void selectDropdownByValue(String xpath, String value) {
 
 		Select s = new Select((driver.findElement(By.xpath(xpath))));
 		s.selectByValue(value);
 
 	}
-	
 
 	public void selectDropdownByVisibleText(String xpath, String value) {
 
@@ -134,7 +130,6 @@ public class AppiumTestDriverFactory {
 		s.selectByVisibleText(value);
 
 	}
-	
 
 	public void mousehover(String xpath) {
 		Actions ac = new Actions(driver);
@@ -142,14 +137,12 @@ public class AppiumTestDriverFactory {
 		ac.moveToElement(we).build().perform();
 
 	}
-	
 
 	public void scrollToElement(String xpath) {
 		WebElement element = driver.findElement(By.xpath(xpath));
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("arguments[0].scrollIntoView();", element);
 	}
-	
 
 	public void clickOnElementByJScript(String xpath) {
 
@@ -158,7 +151,6 @@ public class AppiumTestDriverFactory {
 		jse.executeScript("arguments[0].click();", element);
 
 	}
-	
 
 	public void sendTextByJS(String value, String xpath) {
 
@@ -167,15 +159,13 @@ public class AppiumTestDriverFactory {
 		jse.executeScript("arguments[0].value='" + value + "';", element);
 
 	}
-	
 
 	public Boolean objectExists(String xpath) {
 		return !driver.findElements(By.xpath(xpath)).isEmpty();
 	}
 
-	
 	public void waitUntilPageReadyStateComplete(long timeOutInSeconds) {
-		
+
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOutInSeconds));
 		ExpectedCondition<Boolean> pageReadyStateComplete = new ExpectedCondition<Boolean>() {
 			public Boolean apply(WebDriver driver) {
