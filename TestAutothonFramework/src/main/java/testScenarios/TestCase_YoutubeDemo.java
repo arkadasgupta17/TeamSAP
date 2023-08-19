@@ -4,6 +4,7 @@ import static org.testng.Assert.assertEquals;
 
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.w3c.dom.Document;
 
@@ -25,20 +26,20 @@ public class TestCase_YoutubeDemo {
 
 	ExtentReports extent = new ExtentReports();
 	ExtentSparkReporter spark = new ExtentSparkReporter(
-			"/Users/I532546/git/TestAutothonFramework/TestAutothonFramework/src/test/resources/HTMLReports/ExtentReport1.html");
+			"/Users/I320807/Downloads/ExtentReport1.html");
 
 	@BeforeTest
 	public void reportConfiguration() {
 		extent.attachReporter(spark);
 
 	}
-
-	@Test(priority = 1)
-	public void TC01_Youtube_Video_Quality_Change() throws InterruptedException {
+	@Parameters({"url"})
+	@Test(testName = "TC01_Youtube_Video_Quality_Change")
+	public void TC01_Youtube_Video_Quality_Change(String url) throws InterruptedException {
 
 		ExtentTest test = extent.createTest("Youtube Video Quality Change");
 		try {
-			fc.launchApplication("https://www.youtube.com/watch?v=_pG4QLtuRYw");
+			fc.launchApplication(url);
 			test.log(Status.PASS, "Application Launched");
 			
 			fc.gotoYoutubeVideoSettings();
