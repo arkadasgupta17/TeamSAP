@@ -18,7 +18,7 @@ import businessComponents.FunctionalComponents;
 import businessComponents.FunctionalComponentsMobile;
 import businessComponents.FunctionalComponentAPI;
 
-public class TestCase_YoutubeDemo {
+public class YoutubeDemo_test {
 	
 
 	FunctionalComponents fc = new FunctionalComponents();
@@ -27,7 +27,7 @@ public class TestCase_YoutubeDemo {
 
 	ExtentReports extent = new ExtentReports();
 	ExtentSparkReporter spark = new ExtentSparkReporter(
-			"/Users/I532546/git/TestAutothonFramework/TestAutothonFramework/src/test/resources/HTMLReports/ExtentReport1.html");
+			"Users/I573505/OneDrive - SAP SE/Documents/Github/TestAutothonFramework/TestAutothonFramework/src/test/resources/HTMLReports/ExtentReport1.html");
 
 	@BeforeTest
 	public void reportConfiguration() {
