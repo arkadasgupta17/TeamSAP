@@ -1,6 +1,7 @@
 package businessComponents;
 
 
+import java.io.IOException;
 import java.io.StringReader;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -10,6 +11,9 @@ import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import io.restassured.RestAssured;
 import io.restassured.filter.log.RequestLoggingFilter;
@@ -147,4 +151,25 @@ public class FunctionalComponentAPI {
 		}
 		return link;
 	}
+	
+	public org.jsoup.nodes.Document getJsoupDocument(String url) throws IOException {
+		return Jsoup.connect(url).get();
+	}
+	
+	public String getJsoupDocumentTitle(org.jsoup.nodes.Document document) {
+		return document.title();
+	}
+	
+	public Element getJsoupElementByCssQuery(org.jsoup.nodes.Document document, String cssQuery) {
+		return document.selectFirst(cssQuery);
+	}
+	
+	public Elements getJsoupElementsByCssQuery(org.jsoup.nodes.Document document, String cssQuery) {
+		return document.select(cssQuery);
+	}
+	
+	public Elements getJsoupElementsByXpath(org.jsoup.nodes.Document document, String xpath) {
+		return document.selectXpath(xpath);
+	}
+
 }
