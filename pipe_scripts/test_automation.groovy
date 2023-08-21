@@ -12,7 +12,8 @@ pipeline {
         stage('Build Project') {
             steps {
                 script {
-                       echo "Skipping as of now"
+                       echo "Build the test automation project usind maven"
+                       bat "mvn -f TestAutothonFramework/pom.xml clean package"
                 }
             }
         }
@@ -20,6 +21,7 @@ pipeline {
             steps {
                 script {
                        echo "Skipping as of now"
+                       bat "mvn -f TestAutothonFramework/pom.xml clean test -D test_file=testng.xml"
                 }
             }
         }
@@ -27,6 +29,7 @@ pipeline {
             steps {
                 script {
                        echo "Skipping as of now"
+                       archiveArtifacts artifacts: '**/test-output/', followSymlinks: false
                 }
             }
         }
