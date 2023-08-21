@@ -2,6 +2,8 @@ package testScenarios;
 
 import static org.testng.Assert.assertEquals;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Element;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -138,6 +140,31 @@ public class TestCase_YoutubeDemo {
 			Document docYoutubeSearch = fca.convertStringToXMLDocument(youTubeSearch);
 			String titleYoutubeSearch = fca.getHtmlTitle(docYoutubeSearch);
 			test.log(Status.PASS, "search for selenium in youtube");
+			
+			//Jsoup
+			org.jsoup.nodes.Document googleDoc = fca.getJsoupDocument("https://www.google.com");
+			String title = fca.getJsoupDocumentTitle(googleDoc);
+
+			org.jsoup.nodes.Document searchdoc = fca.getJsoupDocument("https://www.google.com/search?q=wikipedia");
+			String titleGoogleSearch = fca.getJsoupDocumentTitle(searchdoc);
+			Element selectFirst = fca.getJsoupElementByCssQuery(searchdoc, 
+					"#rso > div.hlcw0c > div > div > div > div > div > div > div > div.yuRUbf > div > a > div > div > div > cite");
+			String linkWiki = selectFirst.text();
+			
+
+			org.jsoup.nodes.Document wikiDoc = fca.getJsoupDocument(linkWiki);
+			String wikiTitle = fca.getJsoupDocumentTitle(wikiDoc);
+
+			org.jsoup.nodes.Document wikiSearchDoc = fca.getJsoupDocument(linkWiki + "/wiki/Selenium");
+			String wikiSearchTitle = fca.getJsoupDocumentTitle(wikiSearchDoc);
+			Element selectFirst2 = fca.getJsoupElementByCssQuery(wikiSearchDoc,
+					"#mw-content-text > div.mw-parser-output > p:nth-child(8)");
+			String text = selectFirst2.text();
+
+//		        Elements newsHeadlines = doc.select("#mp-itn b a");
+//		        for (Element headline : newsHeadlines) {
+//		            log("%s\n\t%s", headline.attr("title"), headline.absUrl("href"));
+//		        }
 			
 		} catch (Exception e) {
 			// TODO: handle exception
