@@ -1,5 +1,12 @@
 package businessComponents;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
 import pageObjectRepository.YoutubeVideoPage;
@@ -14,6 +21,29 @@ public class FunctionalComponents extends WebDriverFactory {
 		driver = wf.browserSetup();
 		driver.get(url);
 
+	}
+
+	public String captureScreenshot() {
+
+		String screenshotPath = null;
+
+		try {
+
+			Calendar calendar = Calendar.getInstance();
+			SimpleDateFormat formater = new SimpleDateFormat("dd_MM_yyyy_hh_mm_ss");
+			screenshotPath = System.getProperty("user.dir") + "/src/test/resources/Screenshots/FailedScreenshot_"
+					+ (formater.format(calendar.getTime())) + " .jpg";
+
+			TakesScreenshot scrShot = (TakesScreenshot) driver;
+			File SrcFile = scrShot.getScreenshotAs(OutputType.FILE);
+			File DestFile = new File(screenshotPath);
+			FileUtils.copyFile(SrcFile, DestFile);
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+		return screenshotPath;
 	}
 
 	public void gotoYoutubeVideoSettings() {

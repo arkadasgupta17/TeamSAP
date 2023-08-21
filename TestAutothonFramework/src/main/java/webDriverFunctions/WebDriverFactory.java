@@ -1,6 +1,10 @@
 package webDriverFunctions;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Calendar;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,9 +14,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+
+import org.apache.commons.io.FileUtils;
 
 public class WebDriverFactory {
 
@@ -63,30 +72,25 @@ public class WebDriverFactory {
 	public void closeBrowser() {
 		driver.close();
 	}
-	
-	
+
 	public void closeAllBrowserEvents() {
 		driver.quit();
 	}
 
-	
 	public String getTextFromElement(String xpath) {
 		return driver.findElement(By.xpath(xpath)).getText();
 	}
-	
-	
+
 	public String getAttributeFromElement(String xpath, String attribute) {
 		return driver.findElement(By.xpath(xpath)).getAttribute(attribute);
 	}
-	
-	
+
 	public void selectDropdownByValue(String xpath, String value) {
 
 		Select s = new Select((driver.findElement(By.xpath(xpath))));
 		s.selectByValue(value);
 
 	}
-	
 
 	public void selectDropdownByVisibleText(String xpath, String value) {
 
@@ -94,7 +98,6 @@ public class WebDriverFactory {
 		s.selectByVisibleText(value);
 
 	}
-	
 
 	public void mousehover(String xpath) {
 		Actions ac = new Actions(driver);
@@ -102,14 +105,12 @@ public class WebDriverFactory {
 		ac.moveToElement(we).build().perform();
 
 	}
-	
 
 	public void scrollToElement(String xpath) {
 		WebElement element = driver.findElement(By.xpath(xpath));
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("arguments[0].scrollIntoView();", element);
 	}
-	
 
 	public void clickOnElementByJScript(String xpath) {
 
@@ -118,7 +119,6 @@ public class WebDriverFactory {
 		jse.executeScript("arguments[0].click();", element);
 
 	}
-	
 
 	public void sendTextByJS(String value, String xpath) {
 
@@ -127,15 +127,13 @@ public class WebDriverFactory {
 		jse.executeScript("arguments[0].value='" + value + "';", element);
 
 	}
-	
 
 	public Boolean objectExists(String xpath) {
 		return !driver.findElements(By.xpath(xpath)).isEmpty();
 	}
 
-	
 	public void waitUntilPageReadyStateComplete(long timeOutInSeconds) {
-		
+
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOutInSeconds));
 		ExpectedCondition<Boolean> pageReadyStateComplete = new ExpectedCondition<Boolean>() {
 			public Boolean apply(WebDriver driver) {
@@ -144,5 +142,7 @@ public class WebDriverFactory {
 		};
 		wait.until(pageReadyStateComplete);
 	}
+
+
 
 }
