@@ -6,65 +6,88 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class ReadDataFromExternalSources {
 
-    //Method to read data from excel file
-	public static ArrayList<String> readExcelData(FileInputStream fs) throws IOException {
-		ArrayList<String> measureValue = new ArrayList();
-		XSSFWorkbook workbook = new XSSFWorkbook(fs);
-		XSSFSheet sheet = workbook.getSheetAt(0);
-		XSSFRow row = sheet.getRow(0);
-		for (int rowIndex = 1; rowIndex <= sheet.getLastRowNum(); rowIndex++) {
-			row = sheet.getRow(rowIndex);
-			if (row != null) {
-				XSSFCell cell = row.getCell(0);
-				if (cell != null) {
-					// Found column and there is value in the cell.
-					String value = cell.getStringCellValue();
-					measureValue.add(value);
+	//Method to read data from excel file
+		public static String readExcelData(FileInputStream fs, int rowIndex, int columnIndex) throws IOException {
+			XSSFWorkbook workbook = new XSSFWorkbook(fs);
+			XSSFSheet sheet = workbook.getSheetAt(0);
+			XSSFRow row = sheet.getRow(0);
+			if (rowIndex <= sheet.getLastRowNum()) {
+				row = sheet.getRow(rowIndex);
+				if (row != null) {
+					XSSFCell cell = row.getCell(0);
+					if (cell != null) {
+						// Found column and there is value in the cell.
+						String value = cell.getStringCellValue();
+						workbook.close();
+						return value;
 
+					}
 				}
 			}
+			workbook.close();
+			return null;
 		}
-		return measureValue;
-	}
 
 	// Method to read data from Json file
-	public static List<Article> readJSONData(File file) throws IOException {
+	public static String readJSONData(File file, int index, String field) throws IOException {
 
 		ObjectMapper mapper = new ObjectMapper();
-
-		List<Article> articles = Arrays.asList(mapper.readValue(file, Article[].class));
-		System.out.println(articles);
-		return articles;
+		List<Map<String, Object>> jsonObjects = mapper.readValue(file, new TypeReference<List<Map<String, Object>>>() {
+		});
+		if (index < jsonObjects.size()) {
+			return (String) jsonObjects.get(index).get(field);
+		}
+		return null;
 
 	}
 
 	// method to read data from xml file
-	public static StudentList readXMLData(File xmlFile) throws IOException {
+	public static String readXMLData(File xmlFile, int index, String tagName)
+			throws IOException, ParserConfigurationException, SAXException {
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder builder = factory.newDocumentBuilder();
 
-		try {
-			JAXBContext jaxbContext = JAXBContext.newInstance(StudentList.class);
-			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+		// Build Document
+		Document document = builder.parse(xmlFile);
 
-			StudentList studentList = (StudentList) jaxbUnmarshaller.unmarshal(xmlFile);
-			return studentList;
+		// Normalize the XML Structure; It's just too important !!
+		document.getDocumentElement().normalize();
 
-		} catch (JAXBException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		Element root = document.getDocumentElement();
+		System.out.println(root.getNodeName());
+
+		// Get all elements
+		NodeList nList = document.getElementsByTagName(root.getNodeName());
+		Node node = nList.item(0);
+
+		if (node.getNodeType() == Node.ELEMENT_NODE) {
+			Element eElement = (Element) node;
+			return eElement.getElementsByTagName(tagName).item(index).getTextContent();
+
 		}
 		return null;
 

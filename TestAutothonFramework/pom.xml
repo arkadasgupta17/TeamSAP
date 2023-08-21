@@ -5,6 +5,23 @@
 	<groupId>TestAutothon</groupId>
 	<artifactId>TestAutomatioFramework</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<build>
+    <pluginManagement>
+      <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M5</version> <!-- Use your desired Surefire version -->
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                        <!-- Replace with the path to your TestNG XML file -->
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+        </plugins>
+    </pluginManagement>
+  </build>
 	<dependencies>
 		<!--
 		https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
@@ -109,5 +126,11 @@
 		</dependency>
 
 		<!-- <dependencies for reading data from external files> -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.28</version>
+		</dependency>
 	</dependencies>
+	
 </project>
