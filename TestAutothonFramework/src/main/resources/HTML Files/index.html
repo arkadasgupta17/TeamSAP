@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Bootstrap 5 Login Form (with Glassmorphism)</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+<div class="bg">
+
+
+</div>
+
+  <main class="form-signin">
+    
+      <h1 class="h3">TestAutothon</h1>
+    <form action="">
+
+
+      <div class="form-floating">
+        <input class="form-control" id="floatingInput">
+        <label for="floatingInput">Enter the URL</label>
+      </div>
+
+      <div class="checkbox mb-3">
+        <div class="form-check form-switch">
+</div>
+        
+      </div>
+      <button id = "submitButton" class="w-100 btn btn-lg" type="submit" onclick="triggerButtonPress()">Run Test</button>
+    </form>
+
+          <p class="copyright">&copy; 2023</p>
+  </main>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // const form = document.getElementById("jenkins-form");
+        const triggerButton = document.getElementById("submitButton");
+        console.log('addEventListener method called');
+    });
+    async function triggerButtonPress(){
+            const branch = document.getElementById("floatingInput").value;
+            console.log('triggerButton clicked');
+            return await triggerPipelineWithCrumb(branch);
+    };
+
+        
+
+    async function triggerPipelineWithCrumb(url) {
+        // Send the input data to Jenkins job
+        // You can use AJAX or fetch to send the data to your Jenkins server
+        // Replace the URL with the actual URL of your Jenkins job and handle the response
+        var myHeaders = new Headers();
+        myHeaders.append("Jenkins-Crumb", "30373f7a5e92eba195cd0f27106e1f23a9fe6cd2faa6db151308229f563fa5c8");
+        myHeaders.append("Content-Type", "application/json");
+        myHeaders.append("Authorization", "Basic bmF2ZWVuX3Y6MTE2NDAzNjgwYTA5YzkxMzI3MWRiNTEwODUxMmZkN2JmMA==");
+        console.log('triggerPipelineWithCrumb method called');
+        // var raw = JSON.stringify({
+        //     "YOUTUBE_URL": "https://www.youtube.com/watch?v=cSED556_KCg&t=14s"
+        // });
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            // body: raw,
+            redirect: 'follow'
+        };
+
+        return fetch("http://localhost:8080/job/testNG_Sample/buildWithParameters?token=Welcome1!&YOUTUBE_URL="+url, requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                window.location.href = 'http://localhost:8080/job/testNG_Sample/';
+            })
+            .catch(error => console.log('error', error));
+            setTimeout(function () {
+            }, 5000);
+    };
+    function showLoader()
+    {
+        $(".loader").fadeIn("slow");
+    }
+    function hideLoader()
+    {
+        $(".loader").fadeOut("slow");
+    }
+</script>
+<!-- partial -->
+  
+</body>
+</html>
