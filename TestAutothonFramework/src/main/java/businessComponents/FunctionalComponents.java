@@ -120,13 +120,13 @@ public class FunctionalComponents extends WebDriverFactory {
 
 	}
 
-	public void searchForTweet() throws InterruptedException {
+	public void searchForTweet(String searchTerm) throws InterruptedException {
 		
 		wf.waitforElementToBeClickableByXpath(TwitterHomePage.linkExplore);
 		wf.webElementClickByXPath(TwitterHomePage.linkExplore);
 
 		wf.waitforElementToBeClickableByXpath(TwitterHomePage.txtSearch);
-		wf.sendTextByXpath(TwitterHomePage.txtSearch, "SAP_TEST_TWEET_IN_STEPIN_SUMMIT_2023");
+		wf.sendTextByXpath(TwitterHomePage.txtSearch, searchTerm);
 		
 		Thread.sleep(5000);
 		
