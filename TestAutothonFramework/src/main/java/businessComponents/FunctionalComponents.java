@@ -9,6 +9,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
+import pageObjectRepository.TwitterLogin;
 import pageObjectRepository.YoutubeVideoPage;
 import webDriverFunctions.WebDriverFactory;
 
@@ -72,6 +73,28 @@ public class FunctionalComponents extends WebDriverFactory {
 
 	}
 
+	
+	
+	public void twitterLogin() {
+		
+		wf.waitforElementToBeClickableByXpath(TwitterLogin.txtUsername);
+		wf.sendTextByXpath(TwitterLogin.txtUsername, "teamSAP_");
+		
+		wf.waitforElementToBeClickableByXpath(TwitterLogin.btnNext);
+		wf.webElementClickByXPath(TwitterLogin.btnNext);
+		
+		wf.waitforElementToBeClickableByXpath(TwitterLogin.txtPasswword);
+		wf.sendTextByXpath(TwitterLogin.txtPasswword, "@SAPteam123@");
+		
+		wf.waitforElementToBeClickableByXpath(TwitterLogin.btnLogin);
+		wf.webElementClickByXPath(TwitterLogin.btnLogin);
+		
+		
+		
+	}
+	
+	
+	
 	public void closeBrowser() {
 		wf.closeBrowser();
 	}
