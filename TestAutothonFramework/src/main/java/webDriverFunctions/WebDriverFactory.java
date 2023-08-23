@@ -33,6 +33,7 @@ public class WebDriverFactory {
 		return driver;
 	}
 
+	
 	public void webElementClickByXPath(String xpath) {
 		driver.findElement(By.xpath(xpath)).click();
 	}
