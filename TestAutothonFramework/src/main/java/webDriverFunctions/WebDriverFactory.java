@@ -38,6 +38,11 @@ public class WebDriverFactory {
 		driver.findElement(By.xpath(xpath)).click();
 	}
 
+	
+	public void sendTextByXpath(String xpath, String value) {
+		driver.findElement(By.xpath(xpath)).sendKeys(value);;
+	}
+	
 	public void openURL(String url) {
 		driver.get(url);
 	}
