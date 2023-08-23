@@ -52,21 +52,21 @@ public class TestAutothon_Twitter_TestCase {
 			fc.twitterLogin();
 			test.log(Status.PASS, "Twitter Login successful");
 
-//			for(int i = 1; i<=5 ; i++) {
-//				
-//				Thread.sleep(2000);
-//				
-//				fc.enterTweetText("#TESTAUTOTHON2023. SAP_TEST_TWEET_IN_STEPIN_SUMMIT_2023 " + i + " @stepin_forum @verity_Software #TESTAUTOTHON2023");
-//				test.log(Status.PASS, "Tweeting Successful");
-//				
-//				Thread.sleep(2000);
-//				
-//				fc.clickPostButton();
-//				test.log(Status.PASS, "Click on Post is Successful");
-//				
-//				Thread.sleep(5000);
-//				
-//			}
+			for(int i = 1; i<=5 ; i++) {
+				
+				Thread.sleep(2000);
+				
+				fc.enterTweetText("#TESTAUTOTHON2023. SAP_TEST_TWEET_IN_STEPIN_SUMMIT_2023 " + i + " @stepin_forum @verity_Software #TESTAUTOTHON2023");
+				test.log(Status.PASS, "Tweeting Successful");
+				
+				Thread.sleep(2000);
+				
+				fc.clickPostButton();
+				test.log(Status.PASS, "Click on Post is Successful");
+				
+				Thread.sleep(5000);
+				
+			}
 
 			Thread.sleep(10000);
 			fc.searchForTweet();
