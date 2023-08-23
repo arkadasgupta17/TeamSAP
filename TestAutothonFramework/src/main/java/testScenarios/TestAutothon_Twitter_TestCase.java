@@ -42,9 +42,9 @@ public class TestAutothon_Twitter_TestCase {
 	}
 
 	@Test(priority = 1)
-	public void TC01_Youtube_Video_Quality_Change() throws InterruptedException {
+	public void TC01_Twitter_Post() throws InterruptedException {
 
-		ExtentTest test = extent.createTest("Youtube Video Quality Change");
+		ExtentTest test = extent.createTest("TC01 Tweet Post");
 		try {
 			fc.launchApplication("https://twitter.com/i/flow/login");
 			test.log(Status.PASS, "Twitter Launched");
@@ -52,6 +52,31 @@ public class TestAutothon_Twitter_TestCase {
 			fc.twitterLogin();
 			test.log(Status.PASS, "Twitter Login successful");
 
+//			for(int i = 1; i<=5 ; i++) {
+//				
+//				Thread.sleep(2000);
+//				
+//				fc.enterTweetText("#TESTAUTOTHON2023. SAP_TEST_TWEET_IN_STEPIN_SUMMIT_2023 " + i + " @stepin_forum @verity_Software #TESTAUTOTHON2023");
+//				test.log(Status.PASS, "Tweeting Successful");
+//				
+//				Thread.sleep(2000);
+//				
+//				fc.clickPostButton();
+//				test.log(Status.PASS, "Click on Post is Successful");
+//				
+//				Thread.sleep(5000);
+//				
+//			}
+
+			Thread.sleep(10000);
+			fc.searchForTweet();
+			test.log(Status.PASS, "Tweet Search Successful");
+
+			for (int j = 1; j <= 5; j++) {
+				String ss = fc.getTweetsScreenshots(j);
+				test.log(Status.PASS, "Tweets" + j + "Screenshot is taken and stored Successfully")
+						.addScreenCaptureFromPath(ss);
+			}
 
 		} catch (Exception e) {
 
@@ -62,6 +87,36 @@ public class TestAutothon_Twitter_TestCase {
 
 	}
 
+	@Test(priority = 2, enabled = false)
+	public void TC02_Twitter_Post_Search_Take_Screenshots() throws InterruptedException {
+
+		ExtentTest test = extent.createTest("TC02 Twitter Post Search and Take Screenshots");
+		try {
+			fc.launchApplication("https://twitter.com/i/flow/login");
+			test.log(Status.PASS, "Twitter Launched");
+
+			fc.twitterLogin();
+			test.log(Status.PASS, "Twitter Login successful");
+			// Thread.sleep(60000);
+
+			Thread.sleep(10000);
+			fc.searchForTweet();
+			test.log(Status.PASS, "Tweet Search Successful");
+
+			for (int i = 1; i <= 5; i++) {
+				String ss = fc.getTweetsScreenshots(i);
+				test.log(Status.PASS, "Tweets Screenshot is taken and stored Successfully")
+						.addScreenCaptureFromPath(ss);
+			}
+
+		} catch (Exception e) {
+
+			test.log(Status.FAIL, "The Test Case is failed. ");
+			test.log(Status.FAIL, "The Failure Reason: " + e.getMessage())
+					.addScreenCaptureFromPath(fc.captureScreenshot());
+		}
+
+	}
 
 	@AfterTest
 	public void closeTest() {
