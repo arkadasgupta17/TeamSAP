@@ -97,17 +97,11 @@ public class YoutubeDemo_test {
 	public void TC01_Youtube_Video_Mobile_Android() throws InterruptedException {
 		ExtentTest test = extent.createTest("Mobile Android Testing");
 		try {
-			fcM.launchApplication("https://www.youtube.com/watch?v=cSED556_KCg&t=14s", "Android");
+			fcM.launchApplication("", "Android");
 			test.log(Status.PASS, "Application Launched");
 
-			fcM.gotoYoutubeVideoSettings();
-			test.log(Status.PASS, "Clicking on Youtube Settings is successful");
-
-			fcM.changeVideoQuality("144p");
-			test.log(Status.PASS, "Quality Change successful");
-
-			String quality = fc.validateCurrentVideoQuality();
-			test.log(Status.PASS, "Quality Change Successful. Current Video Quality is: " + quality);
+			fcM.loginInstagram();
+			test.log(Status.PASS, "Instagram logged in");
 		} catch (Exception e) {
 
 			test.log(Status.FAIL, "The Test Case is failed. ");
