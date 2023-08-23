@@ -9,6 +9,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
+import pageObjectRepository.TwitterHomePage;
 import pageObjectRepository.YoutubeVideoPage;
 import webDriverFunctions.WebDriverFactory;
 
@@ -69,6 +70,24 @@ public class FunctionalComponents extends WebDriverFactory {
 		wf.webElementClickByCssSelector(YoutubeVideoPage.settings);
 		wf.waitforElementToBeClickableByXpath(YoutubeVideoPage.quality);
 		return wf.getTextFromElement(YoutubeVideoPage.quality);
+
+	}
+	
+	
+	public String enterTweetText(String tweet) {
+
+		wf.waitforElementToBeClickableByXpath(TwitterHomePage.textField);
+		wf.sendTextByJS(tweet,TwitterHomePage.textField);
+//		wf.webElementClickByCssSelector(YoutubeVideoPage.settings);
+//		wf.waitforElementToBeClickableByXpath(YoutubeVideoPage.quality);
+		return wf.getTextFromElement(TwitterHomePage.textField);
+
+	}
+	
+	public void clickPostButton() {
+
+		wf.waitforElementToBeClickableByXpath(YoutubeVideoPage.settings);
+		wf.webElementClickByXPath(YoutubeVideoPage.quality);
 
 	}
 
