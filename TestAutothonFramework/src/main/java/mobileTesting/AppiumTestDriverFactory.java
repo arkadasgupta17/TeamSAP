@@ -20,7 +20,8 @@ import io.appium.java_client.android.AndroidDriver;
 
 public class AppiumTestDriverFactory {
 
-	public AppiumDriver driver;
+	public AndroidDriver driver;
+	public AppiumDriver driverIOS;
 
 	public AppiumDriver browserSetupIOS(JSONObject capabilities) {
 
@@ -35,30 +36,32 @@ public class AppiumTestDriverFactory {
 		URL url;
 		try {
 			url = new URL("http://127.0.0.1:4723/wd/hub");
-			driver = new AppiumDriver(url, caps);
+			driverIOS = new AppiumDriver(url, caps);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return driver;
+		return driverIOS;
 	}
 
-	public AppiumDriver browserSetupAndroid(JSONObject capabilities) {
+	public AndroidDriver browserSetupAndroid(JSONObject capabilities) {
 
 		DesiredCapabilities caps = new DesiredCapabilities();
 		caps.setCapability("platformName", capabilities.getString("platformName"));
 		caps.setCapability("platformVersion", capabilities.getString("platformVersion"));
 		caps.setCapability("automationName", capabilities.getString("automationName"));
-		caps.setCapability("browserName", capabilities.getString("browserName"));
-//		caps.setCapability("deviceName", capabilities.getString("deviceName"));
+//        caps.setCapability("browserName", capabilities.getString("browserName"));
+		caps.setCapability("deviceName", capabilities.getString("deviceName"));
 //		caps.setCapability("appPackage", "com.android.chrome");
-		caps.setCapability("appActivity", "com.google.android.apps.chrome.Main");
-		caps.setCapability("noReset", true);
-		caps.setCapability("unicodekeyboard", true);
+        caps.setCapability("appPackage", "com.instagram.android");
+        caps.setCapability("appActivity", "com.instagram.mainactivity.MainActivity");
+//		caps.setCapability("appActivity", "com.google.android.apps.chrome.Main");
+//	    caps.setCapability("noReset", true);
+//	    caps.setCapability("unicodekeyboard", true);
 
 		URL url;
 		try {
 			url = new URL("http://127.0.0.1:4723/wd/hub");
-			driver = new AndroidDriver(url, caps);
+			driver = new AndroidDriver(new URL("http://0.0.0.0:4723/wd/hub"), caps);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -174,4 +177,9 @@ public class AppiumTestDriverFactory {
 		};
 		wait.until(pageReadyStateComplete);
 	}
+	public void sendTextByXpath(String xpath, String value) {
+
+        driver.findElement(By.xpath(xpath)).sendKeys(value);
+
+    }
 }
