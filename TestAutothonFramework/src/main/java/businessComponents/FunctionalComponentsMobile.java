@@ -35,10 +35,10 @@ public class FunctionalComponentsMobile extends AppiumTestDriverFactory {
 		} else {
 			// To Do for Android
 			capabilities.put("platformName", "Android");
-			capabilities.put("platformVersion", "12");
+			capabilities.put("platformVersion", "14");
 			capabilities.put("browserName", "Chrome");
 			capabilities.put("automationName", "UiAutomator2");
-			capabilities.put("deviceName", "JNON7PDYCM7D55CY");
+			capabilities.put("deviceName", "emulator-5554");
 
 			driver = wf.browserSetupAndroid(capabilities);
 			
@@ -46,7 +46,7 @@ public class FunctionalComponentsMobile extends AppiumTestDriverFactory {
 				driver.pushFile("/sdcard/download/Picture 1.png", new File("/Users/I320807/Downloads/Picture 1.png"));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
-//				e.printStackTrace();
+				e.printStackTrace();
 			}
 		}
 //		driver.navigate().to(url);
@@ -100,10 +100,6 @@ public class FunctionalComponentsMobile extends AppiumTestDriverFactory {
 	public void loginInstagram() {
 		// TODO Auto-generated method stub
 		// Find and interact with login elements using WebElement
-		
-		wf.waitforElementToBeClickableByXpath(InstagramLoginPage.otherAccount);
-		wf.webElementClickByXPath(InstagramLoginPage.otherAccount);
-		
 		wf.waitforElementToBeClickableByXpath(InstagramLoginPage.userNameField);
 		wf.sendTextByXpath(InstagramLoginPage.userNameField, "wrongly_choosen");
 		wf.sendTextByXpath(InstagramLoginPage.passwordField, "@SAPteam123@");
@@ -114,9 +110,6 @@ public class FunctionalComponentsMobile extends AppiumTestDriverFactory {
         
         wf.waitforElementToBeClickableByXpath(InstagramPostPage.allowButton);
         wf.webElementClickByXPath(InstagramPostPage.allowButton);
-        
-        wf.waitforElementToBeClickableByXpath(InstagramPostPage.allowButton2);
-        wf.webElementClickByXPath(InstagramPostPage.allowButton2);
         
         wf.waitforElementToBeClickableByXpath(InstagramPostPage.profileButton);
         wf.webElementClickByXPath(InstagramPostPage.profileButton);
