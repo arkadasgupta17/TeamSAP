@@ -20,6 +20,7 @@ import businessComponents.FunctionalComponents;
 import businessComponents.FunctionalComponentsMobile;
 import webDriverFunctions.WebDriverFactory;
 import businessComponents.FunctionalComponentAPI;
+import dataExtractionUtilities.AccessSourceFile;
 
 public class TestAutothon_Twitter_TestCase {
 
@@ -34,6 +35,9 @@ public class TestAutothon_Twitter_TestCase {
 	ExtentReports extent = new ExtentReports();
 	ExtentSparkReporter spark = new ExtentSparkReporter(System.getProperty("user.dir")
 			+ "/src/test/resources/HTMLReports/ExtentReport_" + (formater.format(calendar.getTime())) + ".html");
+	AccessSourceFile asf = new AccessSourceFile();
+	
+	String testData = System.getProperty("user.dir")+"/src/test/resources/testData/stepinhacakthon.xlsx";
 
 	@BeforeTest
 	public void reportConfiguration() {
@@ -54,9 +58,13 @@ public class TestAutothon_Twitter_TestCase {
 
 			for(int i = 1; i<=5 ; i++) {
 				
+				
+				String textid = Integer.toString(i);
+				String tweet = asf.getValue(testData, "data", "UniqueText"+textid);
+				
 				Thread.sleep(2000);
 				
-				fc.enterTweetText("#TESTAUTOTHON2023. SAP_TEST_TWEET_IN_STEPIN_SUMMIT_2023 " + i + " @stepin_forum @verity_Software #TESTAUTOTHON2023");
+				fc.enterTweetText(tweet);
 				test.log(Status.PASS, "Tweeting Successful");
 				
 				Thread.sleep(2000);
@@ -69,7 +77,7 @@ public class TestAutothon_Twitter_TestCase {
 			}
 
 			Thread.sleep(10000);
-			fc.searchForTweet();
+			fc.searchForTweet("SAP_At_STEPINSUMMIT2023_1701020118");
 			test.log(Status.PASS, "Tweet Search Successful");
 
 			for (int j = 1; j <= 5; j++) {
@@ -100,7 +108,7 @@ public class TestAutothon_Twitter_TestCase {
 			// Thread.sleep(60000);
 
 			Thread.sleep(10000);
-			fc.searchForTweet();
+			fc.searchForTweet("SAP_At_STEPINSUMMIT2023_1701020117");
 			test.log(Status.PASS, "Tweet Search Successful");
 
 			for (int i = 1; i <= 5; i++) {
